@@ -1,0 +1,1 @@
+export { getTopHeadlines } from './getTopHeadlines';

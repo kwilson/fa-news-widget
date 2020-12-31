@@ -1,0 +1,56 @@
+{
+  "status": "ok",
+  "totalResults": 38,
+  "articles": [
+    {
+      "source": { "id": null, "name": "Mirror Online" },
+      "author": "Abigail O'Leary",
+      "title": "New Year's Eve 2020 LIVE: New Zealand celebrates 2021 with massive firework display - Mirror.co.uk",
+      "description": "While London usually marks one of the biggest firework displays in the world, this year the banks of the River Thames will fall eerily quiet as millions across England are now in Tier 4 restrictions",
+      "url": "https://www.mirror.co.uk/news/world-news/new-years-eve-2020-live-23242758",
+      "urlToImage": "https://i2-prod.mirror.co.uk/incoming/article23242768.ece/ALTERNATES/s1200/0_Times-Square-New-Years-Eve-2021-Preparations.jpg",
+      "publishedAt": "2020-12-31T12:14:00Z",
+      "content": "Police chief's warning ahead of New Year\r\nThe Metropolitan Police issued a warning to potential revellers to “celebrate the New Year in the comfort of their own homes, not the homes of family and fri… [+1439 chars]"
+    },
+    {
+      "source": { "id": null, "name": "The Guardian" },
+      "author": "Nicola Davis, Linda Geddes",
+      "title": "Covid vaccine: UK doctors criticise rescheduling of second doses - The Guardian",
+      "description": "GPs say cancelling appointments is waste of time and could lead to confusion among patients",
+      "url": "https://amp.theguardian.com/society/2020/dec/31/covid-vaccine-uk-doctors-criticise-rescheduling-of-second-doses",
+      "urlToImage": null,
+      "publishedAt": "2020-12-31T12:08:00Z",
+      "content": "DoctorsGPs say cancelling appointments is waste of time and could lead to confusion among patients\r\nPlans to delay giving the second dose of a Covid vaccine to more than 500,000 people who have recei… [+4995 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Mirror Online" },
+      "author": "Molly Pike",
+      "title": "Kate Garraway's house flooded in lead up to disastrous first Christmas without Derek - Mirror Online",
+      "description": "Kate Garraway said her home flooded in the lead up to Christmas, her first without her husband Derek Draper",
+      "url": "https://www.mirror.co.uk/3am/celebrity-news/breaking-kate-garraways-house-flooded-23243815",
+      "urlToImage": "https://i2-prod.mirror.co.uk/incoming/article23193129.ece/ALTERNATES/s1200/4_JS215245300.jpg",
+      "publishedAt": "2020-12-31T11:42:00Z",
+      "content": "Kate Garraway has revealed that her first Christmas without her husband Derek Draper was almost ruined.\r\nThe Good Morning Britain host, 53, said her home flooded in the lead up to the big day.\r\nDerek… [+3160 chars]"
+    },
+    {
+      "source": { "id": "independent", "name": "Independent" },
+      "author": "Graham Keeley",
+      "title": "Stanley Johnson says he is applying for French citizenship and ‘will always be a European’ - The Independent",
+      "description": "The British Prime Minister’s father made his comments in an interview with French radio station RTL",
+      "url": "https://www.independent.co.uk/news/world/europe/stanley-johnson-boris-brexit-eu-b1780801.html",
+      "urlToImage": "https://static.independent.co.uk/2020/12/31/11/PRI177686939.jpg",
+      "publishedAt": "2020-12-31T11:35:00Z",
+      "content": "Boris Johnson's father is applying for a French passport as his son leads Britain out of the European Union on Thursday.  \r\nI will always be European, Stanley Johnson told French radio RTL, speaking … [+2484 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Sky.com" },
+      "author": "John-Paul Ford Rojas",
+      "title": "Tesco and Pizza Hut named and shamed over minimum wage breaches - Sky News",
+      "description": "The supermarket said it was \"disappointed and surprised\" to have been included on the list after a \"technical issue\" in 2017.",
+      "url": "https://news.sky.com/story/tesco-and-pizza-hut-named-and-shamed-over-minimum-wage-breaches-12176216",
+      "urlToImage": "https://e3.365dm.com/20/12/1600x900/skynews-tesco-pizza-hut_5223190.jpg?20201231111048",
+      "publishedAt": "2020-12-31T11:15:00Z",
+      "content": null
+    }
+  ]
+}
