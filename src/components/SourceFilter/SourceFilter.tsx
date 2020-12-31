@@ -1,6 +1,6 @@
 import { useCallback, useMemo, ChangeEventHandler } from 'react';
 
-import type { ISource } from '../../data/getSources/getSources';
+import type { ISource } from '../../data/getSources';
 import styles from './SourceFilter.module.css';
 
 interface IProps {

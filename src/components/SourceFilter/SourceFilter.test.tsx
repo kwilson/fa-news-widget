@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 
-import type { ISource } from '../../data/getSources/getSources';
+import type { ISource } from '../../data/getSources';
 import { SourceFilter } from './SourceFilter';
 import styles from './SourceFilter.module.css';
 

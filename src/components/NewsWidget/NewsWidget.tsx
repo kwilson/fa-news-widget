@@ -7,7 +7,7 @@ import { ArticleList } from '../ArticleList';
 import { SourceFilter } from '../SourceFilter';
 import { Button } from '../Button';
 import { getTopHeadlines } from '../../data/getTopHeadlines';
-import { getSources } from '../../data/getSources/getSources';
+import { getSources } from '../../data/getSources';
 
 interface IProps {
   apiKey: string;

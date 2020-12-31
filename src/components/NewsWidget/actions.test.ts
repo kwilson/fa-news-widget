@@ -1,5 +1,5 @@
-import { ISource } from '../../data/getSources/getSources';
-import { INewsItemCollection } from '../../data/getTopHeadlines/getTopHeadlines';
+import { ISource } from '../../data/getSources';
+import { INewsItemCollection } from '../../data/getTopHeadlines';
 import * as actions from './actions';
 
 describe(`${actions.loadArticles.name}`, () => {

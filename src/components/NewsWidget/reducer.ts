@@ -1,4 +1,4 @@
-import { ISource } from "../../data/getSources/getSources";
+import { ISource } from "../../data/getSources";
 import { INewsItem } from "../../data/getTopHeadlines";
 import type { Actions } from './actions';
 

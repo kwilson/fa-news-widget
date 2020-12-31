@@ -1,5 +1,5 @@
-import { ISource } from '../../data/getSources/getSources';
-import type { INewsItemCollection } from '../../data/getTopHeadlines/getTopHeadlines';
+import { ISource } from '../../data/getSources';
+import type { INewsItemCollection } from '../../data/getTopHeadlines';
 
 export const loadArticles = () => <const>({
   type: 'LOAD_ARTICLES',

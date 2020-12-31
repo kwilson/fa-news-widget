@@ -1,2 +1,2 @@
-export type { INewsItem } from './getTopHeadlines';
+export type { INewsItem, INewsItemCollection } from './getTopHeadlines';
 export { getTopHeadlines } from './getTopHeadlines';

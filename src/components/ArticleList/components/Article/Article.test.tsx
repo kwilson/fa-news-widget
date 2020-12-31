@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { INewsItem } from '../../../../data/getTopHeadlines/getTopHeadlines';
+import { INewsItem } from '../../../../data/getTopHeadlines';
 import { Article } from './Article';
 
 import styles from './Article.module.css';

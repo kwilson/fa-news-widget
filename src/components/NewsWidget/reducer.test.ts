@@ -1,7 +1,7 @@
 import { INITIAL_STATE, IState, reducer } from './reducer';
 import * as actions from './actions';
 import { INewsItem } from '../../data/getTopHeadlines';
-import { ISource } from '../../data/getSources/getSources';
+import { ISource } from '../../data/getSources';
 
 const getArticleFromSeed = (x: number): INewsItem => ({
   sourceId: `article-${x}`,
