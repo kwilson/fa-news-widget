@@ -1,6 +1,7 @@
 import { INITIAL_STATE, IState, reducer } from './reducer';
 import * as actions from './actions';
 import { INewsItem } from '../../data/getTopHeadlines';
+import { ISource } from '../../data/getSources/getSources';
 
 const getArticleFromSeed = (x: number): INewsItem => ({
   sourceId: `article-${x}`,
@@ -9,6 +10,11 @@ const getArticleFromSeed = (x: number): INewsItem => ({
   publishedAt: new Date().toISOString(),
   title: `Article ${x}`,
   description: `Description ${x}`,
+});
+
+const getSourceFromSeed = (x: number): ISource => ({
+  id: `src-${x}`,
+  name: `Source ${x}`,
 });
 
 describe('reducer', () => {
@@ -49,6 +55,34 @@ describe('reducer', () => {
     });
   });
 
+  describe('isLoadingSources', () => {
+    it('is FALSE by default', () => {
+      expect(INITIAL_STATE.isLoadingSources).toBe(false);
+    });
+
+    it(`is set to TRUE on ${actions.loadSources.name}`, () => {
+      const state: IState = {
+        ...INITIAL_STATE,
+        isLoadingSources: false,
+      };
+
+      const { isLoadingSources } = reducer(state, actions.loadSources());
+
+      expect(isLoadingSources).toBe(true);
+    });
+
+    it(`is set to FALSE on ${actions.loadSourcesSuccess.name}`, () => {
+      const state: IState = {
+        ...INITIAL_STATE,
+        isLoadingSources: true,
+      };
+
+      const { isLoadingSources } = reducer(state, actions.loadSourcesSuccess([]));
+
+      expect(isLoadingSources).toBe(false);
+    });
+  });
+
   describe('totalNewsItems', () => {
     it('is NULL by default', () => {
       expect(INITIAL_STATE.totalNewsItems).toBe(null);
@@ -68,6 +102,17 @@ describe('reducer', () => {
       }, 1));
 
       expect(totalNewsItems).toBe(results);
+    });
+
+    it(`is cleared on ${actions.selectSource}`, () => {
+      const state: IState = {
+        ...INITIAL_STATE,
+        totalNewsItems: 123,
+      };
+
+      const { totalNewsItems } = reducer(state, actions.selectSource(''));
+
+      expect(totalNewsItems).toBe(INITIAL_STATE.totalNewsItems);
     });
   });
 
@@ -108,6 +153,52 @@ describe('reducer', () => {
 
       expect(articles).toEqual([...existingArticles, ...newArticles]);
     });
+
+    it(`is cleared on ${actions.selectSource}`, () => {
+      const existingArticles: INewsItem[] = [1, 2, 3].map(getArticleFromSeed);
+
+      const state: IState = {
+        ...INITIAL_STATE,
+        articles: existingArticles,
+      };
+
+      const { articles } = reducer(state, actions.selectSource(''));
+
+      expect(articles).toBe(INITIAL_STATE.articles);
+    });
+  });
+
+  describe('sources', () => {
+    it('is empty by default', () => {
+      expect(INITIAL_STATE.sources).toEqual([]);
+    });
+
+    it(`is set on ${actions.loadSourcesSuccess.name}`, () => {
+      const newSources: ISource[] = [1, 2, 3].map(getSourceFromSeed);
+
+      const state: IState = {
+        ...INITIAL_STATE,
+        sources: [],
+      };
+
+      const { sources } = reducer(state, actions.loadSourcesSuccess(newSources));
+
+      expect(sources).toEqual(newSources);
+    });
+
+    it(`replaces existing items on ${actions.loadSourcesSuccess.name}`, () => {
+      const existingSources = [1, 2, 3].map(getSourceFromSeed);
+      const newSources = [4, 5, 6].map(getSourceFromSeed);
+
+      const state: IState = {
+        ...INITIAL_STATE,
+        sources: existingSources,
+      };
+
+      const { sources } = reducer(state, actions.loadSourcesSuccess(newSources));
+
+      expect(sources).toEqual(newSources);
+    });
   });
 
   describe('currentPage', () => {
@@ -130,6 +221,25 @@ describe('reducer', () => {
       }, newPage));
 
       expect(currentPage).toBe(newPage);
+    });
+  });
+
+  describe('selectedSource', () => {
+    it('is empty string by default', () => {
+      expect(INITIAL_STATE.selectedSource).toBe('');
+    });
+
+    it(`is set on ${actions.selectSource.name}`, () => {
+      const state: IState = {
+        ...INITIAL_STATE,
+        selectedSource: '',
+      };
+
+      const newSource = 'bbc-news';
+
+      const { selectedSource } = reducer(state, actions.selectSource(newSource));
+
+      expect(selectedSource).toBe(newSource);
     });
   });
 });
