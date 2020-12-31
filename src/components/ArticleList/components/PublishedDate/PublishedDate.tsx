@@ -1,16 +1,11 @@
-import { useMemo } from 'react';
-
 interface IProps {
   value: string;
 }
 
 export const PublishedDate: React.FunctionComponent<IProps> = ({ value }) => {
-  const displayValue = useMemo(() => {
-    const date = new Date(value);
-    return date.toLocaleDateString();
-  }, [value]);
+  const date = new Date(value).toLocaleDateString();
 
   return (
-    <time dateTime={value} data-testid="published-date">{displayValue}</time>
+    <time dateTime={value} data-testid="published-date">{date}</time>
   );
 };
