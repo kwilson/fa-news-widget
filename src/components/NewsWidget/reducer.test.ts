@@ -53,6 +53,17 @@ describe('reducer', () => {
 
       expect(isLoadingArticles).toBe(false);
     });
+
+    it(`is set to FALSE on ${actions.loadArticlesFailure.name}`, () => {
+      const state: IState = {
+        ...INITIAL_STATE,
+        isLoadingArticles: true,
+      };
+
+      const { isLoadingArticles } = reducer(state, actions.loadArticlesFailure());
+
+      expect(isLoadingArticles).toBe(false);
+    });
   });
 
   describe('isLoadingSources', () => {
@@ -78,6 +89,17 @@ describe('reducer', () => {
       };
 
       const { isLoadingSources } = reducer(state, actions.loadSourcesSuccess([]));
+
+      expect(isLoadingSources).toBe(false);
+    });
+
+    it(`is set to FALSE on ${actions.loadSourcesFailure.name}`, () => {
+      const state: IState = {
+        ...INITIAL_STATE,
+        isLoadingSources: true,
+      };
+
+      const { isLoadingSources } = reducer(state, actions.loadSourcesFailure());
 
       expect(isLoadingSources).toBe(false);
     });
@@ -240,6 +262,38 @@ describe('reducer', () => {
       const { selectedSource } = reducer(state, actions.selectSource(newSource));
 
       expect(selectedSource).toBe(newSource);
+    });
+  });
+
+  describe('error', () => {
+    it('is null by default', () => {
+      expect(INITIAL_STATE.error).toBe(null);
+    });
+
+    it(`is set on ${actions.loadArticlesFailure.name}`, () => {
+      const state: IState = {
+        ...INITIAL_STATE,
+        error: null,
+      };
+
+      const newError = new Error('error message');
+
+      const { error } = reducer(state, actions.loadArticlesFailure(newError));
+
+      expect(error).toBe(newError);
+    });
+
+    it(`is set on ${actions.loadSourcesFailure.name}`, () => {
+      const state: IState = {
+        ...INITIAL_STATE,
+        error: null,
+      };
+
+      const newError = new Error('error message');
+
+      const { error } = reducer(state, actions.loadSourcesFailure(newError));
+
+      expect(error).toBe(newError);
     });
   });
 });

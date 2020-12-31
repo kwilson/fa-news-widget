@@ -10,6 +10,7 @@ export interface IState {
   currentPage: number | null;
   sources: ISource[];
   selectedSource: string;
+  error: string | Error | null;
 }
 
 export const INITIAL_STATE: IState = {
@@ -20,6 +21,7 @@ export const INITIAL_STATE: IState = {
   totalNewsItems: null,
   currentPage: null,
   selectedSource: '',
+  error: null,
 };
 
 export const reducer: React.Reducer<IState, Actions> = (prevState, action) => {
@@ -42,18 +44,32 @@ export const reducer: React.Reducer<IState, Actions> = (prevState, action) => {
         currentPage: action.payload.pageNumber,
       };
 
+    case 'LOAD_ARTICLES_FAILURE':
+      return {
+        ...prevState,
+        isLoadingArticles: false,
+        error: action.payload
+      };
+
     case 'LOAD_SOURCES':
       return {
         ...prevState,
         isLoadingSources: true,
       };
 
-    case 'LOAD_SOURCES_SUCCESS':
-      return {
-        ...prevState,
-        isLoadingSources: false,
-        sources: action.payload.sources,
-      };
+      case 'LOAD_SOURCES_SUCCESS':
+        return {
+          ...prevState,
+          isLoadingSources: false,
+          sources: action.payload.sources,
+        };
+
+      case 'LOAD_SOURCES_FAILURE':
+        return {
+          ...prevState,
+          isLoadingSources: false,
+          error: action.payload
+        };
 
     case 'SELECT_SOURCE':
       return {

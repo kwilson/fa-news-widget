@@ -13,6 +13,11 @@ export const loadArticlesSuccess = (articles: INewsItemCollection, pageNumber: n
   }
 });
 
+export const loadArticlesFailure = (error?: any) => ({
+  type: 'LOAD_ARTICLES_FAILURE',
+  error: true,
+  payload: error
+});
 
 export const loadSources = () => <const>({
   type: 'LOAD_SOURCES',
@@ -25,6 +30,12 @@ export const loadSourcesSuccess = (sources: ISource[]) => <const>({
   }
 });
 
+export const loadSourcesFailure = (error?: any) => ({
+  type: 'LOAD_SOURCES_FAILURE',
+  error: true,
+  payload: error
+});
+
 export const selectSource = (source: string) => <const>({
   type:'SELECT_SOURCE',
   payload: {
@@ -35,6 +46,8 @@ export const selectSource = (source: string) => <const>({
 export type Actions =
 | ReturnType<typeof loadArticles>
 | ReturnType<typeof loadArticlesSuccess>
+| ReturnType<typeof loadArticlesFailure>
 | ReturnType<typeof loadSources>
 | ReturnType<typeof loadSourcesSuccess>
+| ReturnType<typeof loadSourcesFailure>
 | ReturnType<typeof selectSource>;

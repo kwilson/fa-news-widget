@@ -27,14 +27,16 @@ export const NewsWidget: React.FunctionComponent<IProps> = ({ apiKey }) => {
       : [selectedSource];
 
     getTopHeadlines(apiKey, { page: pageNumber, sources })
-      .then(pageData => dispatch(actions.loadArticlesSuccess(pageData, pageNumber)));
+      .then(pageData => dispatch(actions.loadArticlesSuccess(pageData, pageNumber)))
+      .catch(error => dispatch(actions.loadArticlesFailure(error)));
   }, [apiKey, selectedSource]);
 
   const loadSources = useCallback(() => {
     dispatch(actions.loadSources());
 
     getSources(apiKey)
-      .then(sources => dispatch(actions.loadSourcesSuccess(sources)));
+      .then(sources => dispatch(actions.loadSourcesSuccess(sources)))
+      .catch(error => dispatch(actions.loadSourcesFailure(error)));
   }, [apiKey]);
 
   useEffect(() => loadArticles(), [loadArticles]);
@@ -42,8 +44,6 @@ export const NewsWidget: React.FunctionComponent<IProps> = ({ apiKey }) => {
 
   // Selectors
   const isLoading = useMemo(() => {
-    const { isLoadingArticles } = state;
-    return isLoadingArticles;
     const { isLoadingArticles, isLoadingSources } = state;
     return isLoadingArticles || isLoadingSources;
   }, [state]);

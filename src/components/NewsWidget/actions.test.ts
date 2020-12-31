@@ -28,6 +28,17 @@ describe(`${actions.loadArticlesSuccess.name}`, () => {
   });
 });
 
+describe(`${actions.loadArticlesFailure.name}`, () => {
+  it('returns the expected action', () => {
+    const error = 'error text';
+    expect(actions.loadArticlesFailure(error)).toEqual({
+      type: 'LOAD_ARTICLES_FAILURE',
+      error: true,
+      payload: error
+    });
+  });
+});
+
 describe(`${actions.loadSources.name}`, () => {
   it('returns the expected action', () => {
     expect(actions.loadSources()).toEqual({
@@ -45,6 +56,17 @@ describe(`${actions.loadSourcesSuccess.name}`, () => {
       payload: {
         sources,
       }
+    });
+  });
+});
+
+describe(`${actions.loadSourcesFailure.name}`, () => {
+  it('returns the expected action', () => {
+    const error = 'error text';
+    expect(actions.loadSourcesFailure(error)).toEqual({
+      type: 'LOAD_SOURCES_FAILURE',
+      error: true,
+      payload: error
     });
   });
 });
