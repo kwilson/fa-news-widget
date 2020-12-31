@@ -1,0 +1,19 @@
+.indicator {
+  align-items: center;
+  background: rgba(255, 255, 255, .9);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.text {
+  border: solid var(--news-widget-border-width) var(--news-widget-primary);
+  color: var(--news-widget-primary);
+  padding: .4rem 1rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
