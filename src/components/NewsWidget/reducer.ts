@@ -5,12 +5,14 @@ export interface IState {
   isLoadingArticles: boolean;
   articles: INewsItem[];
   totalNewsItems: number | null;
+  currentPage: number | null;
 }
 
 export const INITIAL_STATE: IState = {
   isLoadingArticles: false,
   articles: [],
-  totalNewsItems: null
+  totalNewsItems: null,
+  currentPage: null,
 };
 
 export const reducer: React.Reducer<IState, Actions> = (prevState, action) => {
@@ -28,8 +30,9 @@ export const reducer: React.Reducer<IState, Actions> = (prevState, action) => {
       return {
         ...prevState,
         isLoadingArticles: false,
-        totalNewsItems: action.payload.totalResults,
-        articles: prevState.articles.concat(action.payload.articles)
+        totalNewsItems: action.payload.articles.totalResults,
+        articles: prevState.articles.concat(action.payload.articles.articles),
+        currentPage: action.payload.pageNumber,
       };
 
     default:

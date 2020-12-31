@@ -4,9 +4,12 @@ export const loadArticles = () => <const>({
   type: 'LOAD_ARTICLES',
 });
 
-export const loadArticlesSuccess = (articles: INewsItemCollection) => <const>({
+export const loadArticlesSuccess = (articles: INewsItemCollection, pageNumber: number) => <const>({
   type: 'LOAD_ARTICLES_SUCCESS',
-  payload: articles
+  payload: {
+    articles,
+    pageNumber
+  }
 });
 
 export type Actions =

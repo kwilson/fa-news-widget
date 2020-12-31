@@ -42,8 +42,8 @@ describe('reducer', () => {
 
       const { isLoadingArticles } = reducer(state, actions.loadArticlesSuccess({
         totalResults: 1,
-        articles: []
-      }));
+        articles: [],
+      }, 1));
 
       expect(isLoadingArticles).toBe(false);
     });
@@ -65,7 +65,7 @@ describe('reducer', () => {
       const { totalNewsItems } = reducer(state, actions.loadArticlesSuccess({
         totalResults: results,
         articles: []
-      }));
+      }, 1));
 
       expect(totalNewsItems).toBe(results);
     });
@@ -87,7 +87,7 @@ describe('reducer', () => {
       const { articles } = reducer(state, actions.loadArticlesSuccess({
         totalResults: 3,
         articles: newArticles
-      }));
+      }, 1));
 
       expect(articles).toEqual(newArticles);
     });
@@ -104,9 +104,32 @@ describe('reducer', () => {
       const { articles } = reducer(state, actions.loadArticlesSuccess({
         totalResults: 6,
         articles: newArticles
-      }));
+      }, 1));
 
       expect(articles).toEqual([...existingArticles, ...newArticles]);
+    });
+  });
+
+  describe('currentPage', () => {
+    it('is NULL by default', () => {
+      expect(INITIAL_STATE.currentPage).toBe(null);
+    });
+
+    it(`is set on ${actions.loadArticlesSuccess.name} when NULL`, () => {
+      const state: IState = {
+        ...INITIAL_STATE,
+        currentPage: null,
+      };
+
+      const newPage = 10;
+      const newArticles = [1].map(getArticleFromSeed);
+
+      const { currentPage } = reducer(state, actions.loadArticlesSuccess({
+        totalResults: 1,
+        articles: newArticles
+      }, newPage));
+
+      expect(currentPage).toBe(newPage);
     });
   });
 });
