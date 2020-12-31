@@ -1,0 +1,15 @@
+.button {
+  color: var(--news-widget-primary);
+  font-weight: bold;
+  border: solid var(--news-widget-border-width) var(--news-widget-primary);
+  background-color: transparent;
+  padding: .4rem 1rem;
+  cursor: pointer;
+}
+
+  .button:disabled {
+    border-color: var(--news-widget-secondary);
+    color: var(--news-widget-secondary);
+    opacity: .5;
+    cursor: auto;
+  }
