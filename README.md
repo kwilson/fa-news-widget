@@ -37,7 +37,7 @@ I'd have a look at solutions for removing the possibility of duplicate news item
 ### Handle errors
 I've got data-loading errors being saved to the state, but didn't have time to do anything with them in the UI. My instinct would be to retry _x_ number of times for articles failing to load, then show an error message. For the sources, I'd ignore that error and continue to show the widget without the filter as the user still gets _some_ functionality when this happens.
 
-Something like that would need some investigation for whatever UX is appopriate though.
+Something like that would need some investigation for whatever UX is appropriate though.
 
 ### Confirm some parts of functionality:
   - should the source filter be done at the API-level or on the client? I've used the API itself to filter but it's possible that it should read more data up-front then filter based on the dropdown
