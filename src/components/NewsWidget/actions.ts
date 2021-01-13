@@ -13,7 +13,7 @@ export const loadArticlesSuccess = (articles: INewsItemCollection, pageNumber: n
   }
 });
 
-export const loadArticlesFailure = (error?: any) => ({
+export const loadArticlesFailure = (error?: any) => <const>({
   type: 'LOAD_ARTICLES_FAILURE',
   error: true,
   payload: error
@@ -30,7 +30,7 @@ export const loadSourcesSuccess = (sources: ISource[]) => <const>({
   }
 });
 
-export const loadSourcesFailure = (error?: any) => ({
+export const loadSourcesFailure = (error?: any) => <const>({
   type: 'LOAD_SOURCES_FAILURE',
   error: true,
   payload: error
